@@ -73,7 +73,7 @@ function startquiz() {
     
   ]; 
   for(i=0; i < questions.length; i++) {
-    directions.
+    directionsEl.replaceWith(i);
   };
 
 };
