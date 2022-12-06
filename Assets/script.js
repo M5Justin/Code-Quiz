@@ -2,7 +2,7 @@ var countdown = 60;
 
 var interval = setInterval(function()
 {
-    document.getElementById("timer").innerHTML = -- countdown;
+    document.getElementById("timer").innerHTML = "Time left: " + -- countdown;
 
     if (countdown == 0)
         clearInterval(interval);

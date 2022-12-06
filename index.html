@@ -6,19 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coding Quiz</title>
     <style>
-        body {
+        header {
             display: flex;
             justify-content: space-between;
         }
         p {
             font-size: 24px;
             font-weight: 800;
+            
         }
+        main h2 {
+            text-align: center;
+            font-size: 40px;
+        }
+
+        main p {
+            text-align: center;
+        }
+
+        main {
+            text-align: center;
+        }
+
+        
     </style>
+
 </head>
 <body>
-    <h1><a href="./Assets/highscores.html">View Highscores</a></h1>
-    <p id="timer">Time:</p>
+    <header class="header"> 
+        <h1><a href="./Assets/highscores.html">View Highscores</a></h1>
+        <h3 id="timer">Time left: 1:00</h3>
+    </header>
+
+    <main class="main">
+        <h2>Coding Quiz</h2>
+        <p>Press the button below to get started! Each wrong answer is penalized but you are rewarded
+            for speed.
+        </p>
+        <div>
+            <button id="startbutton">Start</button>
+        </div>
+               
+
+    </main>
 
     <script src="./Assets/script.js"></script>
 </body>
