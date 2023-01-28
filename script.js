@@ -1,79 +1,59 @@
+var container = document.querySelector('.container');
+var questions = document.querySelectorAll('.question');
+var next = document.querySelector('#next');
+var start = document.querySelector('#startButton');
+var quiz = document.querySelector('.quizContainer');
+var highScores = document.querySelector('.highScores');
+var timer = document.querySelector('.countdown');
+var gameOver = document.querySelector('.gameOver');
+var initials = "";
 
+var secondsLeft = 75;
+var answers = ["a", "b", "a", "c", "b", "d"]
+var cursor = 0;
 
-var timerEl = document.getElementById('timer');
-var directionsEl = document.getElementById("directions");
-
-function displayTime(seconds) {
-  var label = "seconds";
-  if (seconds === 1) {
-    label = "second";
+var advance = function (event) {
+  var element = event.target;
+  if (element.matches('.start button')) {
+      cursor ++;
+      countdown();
+      hideStart();
   }
-  timerEl.textContent = seconds + " " + label;
+
+  displayNextQuestion();
+  displayGameOver();
+};
+
+var hideStart = function () {
+  console.log(advance);
+  if (start.dataset.index != cursor) {
+      start.style.display = 'none';
+  } else {
+      start.style.display = 'flex';
+  }
+};
+
+function displayTime() {
+  var label = "seconds";
+  if (secondsLeft === 1) {
+      label = "second";
+  }
+  timer.textContent = secondsLeft + " " + label + " left on the clock!";
 }
 
 function countdown() {
-  var timeLeft = 5;
-  displayTime(timeLeft);
-  
+  displayTime(secondsLeft);
   var timeInterval = setInterval(function () {
-    timeLeft--;
-    displayTime(timeLeft);
-    if (timeLeft === 0) {
-      clearInterval(timeInterval);
-      startQuiz();
-      timerEl.textContent = "Expired";
+      secondsLeft--;
+      displayTime(secondsLeft);
 
-    }
+      if (secondsLeft === 0) {
+          clearInterval(timeInterval);
+          cursor = 7;
+          displayNextQuestion();
+          if (gameOver.style.display != 'block') {
+              displayGameOver();
+          }
+      }
   }, 1000);
-};
-
-
-function startquiz() {
-  let questions = [
-    {
-      headline: "Question 1",
-      answers: {
-        a: "Answer 1",
-        b: "Answer 2",
-        c: "Answer 3",
-        d: "Answer 4", 
-      },
-      correct: "a",
-    },
-    {
-      headline: "Question 2",
-      answers: {
-        a: "Answer 1",
-        b: "Answer 2",
-        c: "Answer 3",
-        d: "Answer 4", 
-      },
-      correct: "b",
-    },
-    {
-    headline: "Question 1",
-    answers: {
-        a: "Answer 1",
-        b: "Answer 2",
-        c: "Answer 3",
-        d: "Answer 4", 
-     },
-    correct: "a",
-    },
-    {
-    headline: "Question 2",
-    answers: {
-        a: "Answer 1",
-        b: "Answer 2",
-        c: "Answer 3",
-        d: "Answer 4", 
-    },
-    correct: "b",
-    },   
-    
-  ]; 
-  for(i=0; i < questions.length; i++) {
-    directionsEl.replaceWith(i);
-  };
-
-};
+}
