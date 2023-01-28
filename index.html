@@ -1,53 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang ="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coding Quiz</title>
-    <style>
-        header {
-            display: flex;
-            justify-content: space-between;
-        }
-        p {
-            font-size: 24px;
-            font-weight: 800;
-            
-        }
-        main h2 {
-            text-align: center;
-            font-size: 40px;
-        }
-
-        main p {
-            text-align: center;
-        }
-
-        .main {
-            text-align: center;
-        }
-    </style>
-
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>Code Quiz</title>
+    <link rel="stylesheet" href="./assets/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 </head>
-<body>
-    <header class="header"> 
-        <h1><a href="./Assets/highscores.html">View Highscores</a></h1>
-        <h3 id="timer">Time left: 1:00</h3>
-    </header>
 
-    <main class="main">
-        <h2 id="header2">Coding Quiz</h2>
-        <p id="directions">Press the button below to get started! Each wrong answer is penalized but you are rewarded
-            for speed.
-        </p>
-        <div>
-            <button id="startbutton" value="click" onclick="countdown(); startQuiz();">Start</button>
+<body>
+<section class = container>
+    
+     <header>
+        <h1>Code Quiz</h1>
+        <h2>This quiz is based on lessons from the UNCC coding bootcamp</h2>
+        <div class="countdown"></div>
+    </header>
+    
+    <section class="start" data-index="0">
+        <button id="startButton">Start the quiz!</button>
+        </section>
+        
+
+    <main id = "quizContainer">
+        <div class="question" data-index="1">
+            <h2 id="next">What is an object?</h2>
+            <button value ="a">a standalone entity, with properties and type.</button>  
+            <button value ="b">an array</button>
+            <button value ="c">something to objectify</button>
+            <button value ="d">html code</button>
         </div>
-               
+
+        <div class="question" data-index="2">
+            <h2 id="next">What is an array?</h2>
+            <button value ="a">same as object</button>
+            <button value ="b">only exists in javascript</button>
+            <button value ="c">something used to store multiple values in a single variable</button>
+            <button value ="d">a collection of data starting with index 1</button>
+        </div>
+
+        <div class="question" data-index="3">
+            <h2 id = "next">What is a method?</h2>
+            <button value ="a">a way to do something</button>
+            <button value ="b">a function</button>
+            <button value ="c">skateboard trick</button>
+            <button value ="d">an action that can be performed on objects</button>
+        </div>
+
+        <div class="question" data-index="4">
+            <h2 id = "next">What is current version of HTML?</h2>
+            <button value ="a">5</button>
+            <button value ="b">4</button>
+            <button value ="c">3</button>
+            <button value ="d">4.1</button>
+        </div>
+
+        <div class="question" data-index="5">
+            <h2 id = "next">What is hoisting?</h2>
+            <button value ="a">moving declarations to top after code execution</button>
+            <button value ="b">moving from scope to scope</button>
+            <button value ="c">lifting heavy things</button>
+            <button value ="d">moving all the declarations at the top of the scope before code execution</button>
+        </div>
 
     </main>
+        
+    <section class="gameover" data-index="6">
+        <p>Your final score is: <span id="scoreLabel">Placeholder</span></p>
+        <input id="initials" placeholder="Enter Initials"></input>
+        <button id="scoreSubmit">Submit</button>
+        <h2>All done :)</h2>
+        <class id = "showScore"></class>
+    </section>
 
-    <script src="./Assets/script.js"></script>
+    <section id = "highScores">
+        <h2>High Scores:</h2>
+        <ul>
+            <li>JMM: 30</li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <button id="replay">Play again?</button>
+    </section>
+</section>
+ <script src="script.js"> </script>
 </body>
+
 </html>
